@@ -14,9 +14,14 @@ const images = [
 ];
 
 const galleryEl = document.querySelector(`.gallery`);
-images.forEach(el => {
-  galleryEl.insertAdjacentHTML(
-    'afterbegin',
-    `<li><img src = "${el.url}" alt = "${el.alt}"  width = "200" height = "150" /></li>`
-  );
-});
+const img = images.map(
+  (el) => `<li><img src = "${el.url}" alt = "${el.alt}"  width = "200" height = "150" /></li>`
+).join(``);
+galleryEl.insertAdjacentHTML('afterbegin', img);
+
+// images.forEach(el => {
+//   galleryEl.insertAdjacentHTML(
+//     'afterbegin',
+//     `<li><img src = "${el.url}" alt = "${el.alt}"  width = "200" height = "150" /></li>`
+//   );
+// });
